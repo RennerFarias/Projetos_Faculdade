@@ -1,8 +1,11 @@
 while True:
     print("Valor minimo de saque: 10 reais\n"
           "Valor maximo de saque: 600 reais")
+
+    # Solicita o valor do Saque
     valor = int(input("Digite o valor a ser sacado: "))
 
+    # Verifica se o valor do saque esta dentro do limite permitido
     if 10 <= valor <= 600:
         break
 
@@ -10,36 +13,17 @@ while True:
         print("Valor invalido")
         continue
 
-total = valor
-ced = 100
-totalced = 0
-while True:
-    if total >= ced:
-        total -= ced
-        totalced += 1
+# Notas disponiveis para saque
+notasDisponiveis = [200, 100, 50, 20, 10, 5, 1]
+quantidadeDeNotas = {}
 
-    else:
-        if totalced > 0:
-            print(f"Total de {totalced} cedulas de R${ced}")
-        if ced == 100:
-            ced = 50
-            totalced = 0
+# Calculo da quantidade de notas necessarias
+for nota in notasDisponiveis:
+    if valor >= nota:
+        quantidadeDeNotas[nota] = valor // nota
+        valor %= nota
 
-        elif ced == 50:
-            ced = 20
-            totalced = 0
-
-        elif ced == 20:
-            ced = 10
-            totalced = 0
-
-        elif ced == 10:
-            ced = 5
-            totalced = 0
-
-        elif ced == 5:
-            ced = 1
-            totalced = 0
-
-        if total == 0:
-            break
+# Exibe o resultado
+print("Notas fornecidas: ")
+for nota, quantidadeDeNotas in quantidadeDeNotas.items():
+    print(f"{quantidadeDeNotas} nota(s) de R${nota}")
