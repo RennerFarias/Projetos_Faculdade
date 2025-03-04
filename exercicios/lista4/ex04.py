@@ -1,7 +1,7 @@
 
 
 
-populacaoInicialA = 
+populacaoInicialA = 80000
 taxaCrescimentoA = 1.03
 populacaoFinalA = populacaoInicialA
 
